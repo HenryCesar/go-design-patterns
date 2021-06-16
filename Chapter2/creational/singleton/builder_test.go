@@ -21,8 +21,10 @@ func TestBuilderPattern(t *testing.T) {
 	}
 
 	bikeBuilder := &BikeBuilder{}
+
 	manufacturingComplex.SetBuilder(bikeBuilder)
 	manufacturingComplex.Construct()
+
 	motorbike := bikeBuilder.GetVehicle()
 	motorbike.Seats = 1
 	if motorbike.Wheels != 2 {
