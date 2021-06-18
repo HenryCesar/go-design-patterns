@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-type computer interface {
-	print()
-	setPrinter(printer)
-}
+// type computer interface {
+// 	print()
+// 	setPrinter(printer)
+// }
 
 type mac struct {
 	printer printer
