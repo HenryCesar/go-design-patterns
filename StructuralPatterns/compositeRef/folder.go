@@ -1,4 +1,4 @@
-package composite
+package compositeRef
 
 import "fmt"
 
@@ -14,6 +14,6 @@ func (f *Folder) search(keyword string) {
 	}
 }
 
-func (f *Folder) add(c component) {
+func (f *Folder) add(c Component) {
 	f.Components = append(f.Components, c)
 }
