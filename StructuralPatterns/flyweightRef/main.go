@@ -90,7 +90,7 @@ func newPlayer(playerType, dressType string) *player {
 
 func (p *player) newLocation(lat, long int) {
 	p.lat = lat
-	p.long = p.long
+	p.long = long
 }
 
 // Game Function [Client Code]
