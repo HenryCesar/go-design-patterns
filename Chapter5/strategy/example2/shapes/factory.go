@@ -2,6 +2,7 @@ package shapes
 
 import (
 	"fmt"
+	strategy "godesignpatterns/Chapter5/strategy/example2"
 	"os"
 )
 
@@ -25,6 +26,6 @@ func Factory(s string) (strategy.Output, error) {
 			},
 		}, nil
 	default:
-		return nil, fmt.Errorf("Strategy '%s' not found\n", s)
+		return nil, fmt.Errorf("strategy '%s' not found", s)
 	}
 }

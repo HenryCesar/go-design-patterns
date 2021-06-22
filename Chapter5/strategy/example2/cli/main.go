@@ -3,25 +3,36 @@ package main
 import (
 	"flag"
 	"log"
+	"os"
+
+	"godesignpatterns/Chapter5/strategy/example2/shapes"
 )
 
-var output = flag.String("output", "console", "The output to use between 'console' and 'image' file")
+var output = flag.String("output", "text", "The output to use between "+
+	"'console' and 'image' file")
 
 func main() {
 	flag.Parse()
 
-	var activeStrategy OutputStrategy
-
-	switch *output {
-	case "console":
-		activeStrategy = &TextSquare{}
-	case "image":
-		activeStrategy = &ImageSquare{"/tmp/image.jpg"}
-	default:
-		activeStrategy = &TextSquare{}
+	activeStrategy, err := shapes.Factory(*output)
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	err := activeStrategy.Draw()
+	switch *output {
+	case shapes.TEXT_STRATEGY:
+		activeStrategy.SetWriter(os.Stdout)
+	case shapes.IMAGE_STRATEGY:
+		w, err := os.Create("/tmp/image.jpg")
+		if err != nil {
+			log.Fatal("Error opening image")
+		}
+		defer w.Close()
+
+		activeStrategy.SetWriter(w)
+	}
+
+	err = activeStrategy.Draw()
 	if err != nil {
 		log.Fatal(err)
 	}

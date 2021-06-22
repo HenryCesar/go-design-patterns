@@ -2,6 +2,7 @@ package shapes
 
 import (
 	"fmt"
+	strategy "godesignpatterns/Chapter5/strategy/example2"
 	"image"
 	"image/color"
 	"image/draw"
