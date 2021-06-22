@@ -38,12 +38,40 @@ type Match struct {
 }
 
 type teamFlyweightFactory struct {
-	createdTeams map[string]*Team
+	createdTeams map[int]*Team
 }
 
-func (t *teamFlyweightFactory) GetTeam(name string) *Team {
-	return nil
+func (t *teamFlyweightFactory) GetTeam(teamID int) *Team {
+	if t.createdTeams[teamID] != nil {
+		return t.createdTeams[teamID]
+	}
+	team := getTeamFactory(teamID)
+	t.createdTeams[teamID] = &team
+
+	return t.createdTeams[teamID]
 }
+
 func (t *teamFlyweightFactory) GetNumberOfObjects() int {
-	return 0
+	return len(t.createdTeams)
+}
+
+func getTeamFactory(team int) Team {
+	switch team {
+	case TEAM_B:
+		return Team{
+			ID:   2,
+			Name: "TEAM_B",
+		}
+	default:
+		return Team{
+			ID:   1,
+			Name: "TEAM_A",
+		}
+	}
+}
+
+func NewTeamFactory() teamFlyweightFactory {
+	return teamFlyweightFactory{
+		createdTeams: make(map[int]*Team),
+	}
 }
