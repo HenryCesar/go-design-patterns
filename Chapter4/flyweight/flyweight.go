@@ -36,3 +36,14 @@ type Match struct {
 	LocalShoots   uint16
 	VisitorShoots uint16
 }
+
+type teamFlyweightFactory struct {
+	createdTeams map[string]*Team
+}
+
+func (t *teamFlyweightFactory) GetTeam(name string) *Team {
+	return nil
+}
+func (t *teamFlyweightFactory) GetNumberOfObjects() int {
+	return 0
+}
