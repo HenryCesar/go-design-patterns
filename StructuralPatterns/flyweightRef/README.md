@@ -88,7 +88,7 @@ Sempre que os outros objetos que compartilham os objetos flyweight são criados,
 
 Vamos ver quais partes desse arranjo serão intrísecos e extrínsecos:
 
-- *Estrado Intríseco*: O uniforme está no estado intrínseco, pois pode ser compartilhado entre vários objetos Terroristas e Antiterroristas.
+- *Estado Intríseco*: O uniforme está no estado intrínseco, pois pode ser compartilhado entre vários objetos Terroristas e Antiterroristas.
 - *Estado Extrínseco*: A localização do jogador e a arma do jogador são m estado extrínseco, pois são diferentes para cada objeto.
 
 </details>
