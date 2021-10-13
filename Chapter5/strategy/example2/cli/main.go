@@ -9,7 +9,7 @@ import (
 )
 
 var output = flag.String("output", "text", "The output to use between "+
-	"'console' and 'image' file")
+	"'text' and 'image' file")
 
 func main() {
 	flag.Parse()
