@@ -1,4 +1,4 @@
-package strategy
+package example2
 
 import "io"
 
