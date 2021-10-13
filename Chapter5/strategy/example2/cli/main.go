@@ -23,7 +23,7 @@ func main() {
 	case shapes.TEXT_STRATEGY:
 		activeStrategy.SetWriter(os.Stdout)
 	case shapes.IMAGE_STRATEGY:
-		w, err := os.Create("/tmp/image.jpg")
+		w, err := os.Create("../tmp/image.jpg")
 		if err != nil {
 			log.Fatal("Error opening image")
 		}
