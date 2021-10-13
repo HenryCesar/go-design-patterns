@@ -77,7 +77,7 @@ func main() {
 	case "console":
 		activeStrategy = &TextSquare{}
 	case "image":
-		activeStrategy = &ImageSquare{"/tmp/image.jpg"}
+		activeStrategy = &ImageSquare{"./tmp/image.jpg"}
 	default:
 		activeStrategy = &TextSquare{}
 	}
